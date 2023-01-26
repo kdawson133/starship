@@ -1,7 +1,10 @@
 format = """
-[$os](fg:nord14 bg:nord3)[\uE0B1](bg:nord3)[ $directory ](fg:nord5 bg:nord3)[\uE0B0](fg:nord3 bg:nord8)$git_branch[\uE0B0](fg:nord8 bg:#3A95C7)$git_status[\uE0B0](#3A95C7 bg:#40A9E0)$time[\uE0B0](#40A9E0 bg:none) $all$character """
-
-right_format = """ [\uE0B2](fg:nord8 bg:none)$time """
+[$os](fg:nord7 bg:nord0)[\uE0B0](fg:nord0 bg:nord1)\
+[ $directory ](fg:nord1 bg:nord1)[\uE0B0](fg:nord1 bg:nord2)\
+$git_branch[\uE0B0](fg:nord2 bg:nord3)\
+$git_status[\uE0B0](fg:nord3 bg:nord7)\
+$time[\uE0B0](fg:nord7 bg:none)\
+$all$character """
 
 add_newline = true
 
@@ -30,16 +33,18 @@ nord14 = '#A3BE8C'
 nord15 = '#B48EAD'
 
 [directory]
-style = "bg:nord3 fg:nord5"
+style = "bg:nord1 fg:nord7"
 truncation_length = 0
 
 [git_branch]
 format = "[ $symbol$branch ]($style)"
-style = "bg:nord8 fg:nord10"
+style = "bg:nord2 fg:nord14"
 
 [git_status]
-format = "[ $all_status$ahead_behind ]($style)"
-style = "bg:#3A95C7 fg:white"
+#format = "[ $all_status$ahead_behind ]($style)"
+format = "[[( *$conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind$stashed)]($style)"
+
+style = "bg:nord3 fg:nord11"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -51,12 +56,12 @@ stashed = "≡"
 [time]
 disabled = false
 format = "[ $time ]($style)"
-style = "bg:#40A9E0 fg:white"
+style = "bg:nord7 fg:nord5"
 
 [os]
 disabled = false
 format = "[ $symbol]($style)"
-style = "bg:nord3 fg:nord14"
+style = "fg:nord7 bg:nord0"
 
 [os.symbols]
 Windows = " "
