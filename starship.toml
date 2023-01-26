@@ -1,19 +1,52 @@
 format = """
-[$os](bg:#4c556a)[\uE0B1](bg:#4c566a)[ $directory](bg:#4c566a)[\uE0B0](fg:#4c556a bg:#4c566a)$git_branch[\uE0B0](fg:#2F79A1 bg:#3A95C7)$git_status[\uE0B0](#3A95C7 bg:#40A9E0)$time[\uE0B0](#40A9E0 bg:none) $all$character """
+[$os](fg:nord14 bg:nord3)[\uE0B1](bg:nord3)[ $directory ](fg:nord5 bg:nord3)[\uE0B0](fg:nord3 bg:nord8)$git_branch[\uE0B0](fg:nord8 bg:#3A95C7)$git_status[\uE0B0](#3A95C7 bg:#40A9E0)$time[\uE0B0](#40A9E0 bg:none) $all$character """
+
+right_format = """ [\uE0B2](fg:nord8 bg:none)$time """
 
 add_newline = true
 
+palette = 'nord'
+
+[palettes.nord]
+# Polar Night
+nord0 = '#2E3440'
+nord1 = '#3B4252'
+nord2 = '#434C5E'
+nord3 = '#4C566A'
+# Snow Storm
+nord4 = '#D8DEE9'
+nord5 = '#E5E9F0'
+nord6 = '#ECEFF4'
+# Frost
+nord7 = '#8FBCBB'
+nord8 = '#88C0D0'
+nord9 = '#81A1C1'
+nord10 = '#5E81AC'
+# Aurora
+nord11 = '#BF616A'
+nord12 = '#D08770'
+nord13 = '#EBCB8B'
+nord14 = '#A3BE8C'
+nord15 = '#B48EAD'
+
 [directory]
-style = "bg:#4c566a fg:white"
+style = "bg:nord3 fg:nord5"
 truncation_length = 0
 
 [git_branch]
 format = "[ $symbol$branch ]($style)"
-style = "bg:#2F79A1 fg:white"
+style = "bg:nord8 fg:nord10"
 
 [git_status]
 format = "[ $all_status$ahead_behind ]($style)"
 style = "bg:#3A95C7 fg:white"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
 
 [time]
 disabled = false
@@ -23,7 +56,7 @@ style = "bg:#40A9E0 fg:white"
 [os]
 disabled = false
 format = "[ $symbol]($style)"
-style = "bg:#4c566a fg:white"
+style = "bg:nord3 fg:nord14"
 
 [os.symbols]
 Windows = " "
