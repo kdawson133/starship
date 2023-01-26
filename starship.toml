@@ -3,7 +3,8 @@ format = """
 [ $directory ](fg:nord1 bg:nord1)[\uE0B0](fg:nord1 bg:nord2)\
 $git_branch[\uE0B0](fg:nord2 bg:nord3)\
 $git_status[\uE0B0](fg:nord3 bg:nord7)\
-$time[\uE0B0](fg:nord7 bg:none)\
+$cmd_duration[\uE0B0](fg:nord7 bg:nord10)\
+$time[\uE0B0](fg:nord10 bg:none)\
 $all$character """
 
 add_newline = true
@@ -35,14 +36,16 @@ nord15 = '#B48EAD'
 [directory]
 style = "bg:nord1 fg:nord7"
 truncation_length = 0
+read_only = ""
 
 [git_branch]
+symbol = ""
 format = "[ $symbol$branch ]($style)"
 style = "bg:nord2 fg:nord14"
 
 [git_status]
 #format = "[ $all_status$ahead_behind ]($style)"
-format = "[[( *$conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind$stashed)]($style)"
+format = "[[( ﯂$conflicted$untracked$modified$staged$renamed$deleted)]($style) ($ahead_behind$stashed)]($style)"
 
 style = "bg:nord3 fg:nord11"
 conflicted = "​"
@@ -51,12 +54,17 @@ modified = "​"
 staged = "​"
 renamed = "​"
 deleted = "​"
-stashed = "≡"
+stashed = "≡ "
 
 [time]
 disabled = false
 format = "[ $time ]($style)"
-style = "bg:nord7 fg:nord5"
+style = "bg:nord10 fg:nord5"
+
+[cmd_duration]
+min_time = 500
+format = "[  $duration ]($style)"
+style =  "bg:nord7 fg:nord3"
 
 [os]
 disabled = false
